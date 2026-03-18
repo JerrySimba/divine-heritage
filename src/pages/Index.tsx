@@ -1,16 +1,36 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Award, BookOpen, Calendar, Clock, MapPin, ChevronRight } from "lucide-react";
+import { ArrowRight, Users, Award, BookOpen, Calendar, Clock, MapPin, ChevronRight, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import drJoan from "@/assets/dr-joan.png";
-import trainingImg from "@/assets/training-workshop.jpg";
+import divine1 from "@/assets/divine1.jpg";
+import divine2 from "@/assets/divine2.jpg";
+import divine3 from "@/assets/divine3.jpg";
+import joanGreen from "@/assets/joan-green.jpg";
+import joanGroup from "@/assets/joan-group.jpg";
+import joanWorkshop from "@/assets/joan-workshop.jpg";
+import joanConference from "@/assets/joan-conference.jpg";
+import joanSelfie from "@/assets/joan-selfie.jpg";
 import eventImg from "@/assets/event-conference.jpg";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 12 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
-};
+const slides = [
+  {
+    image: divine1,
+    title: "Strategic Consultancy for Institutional Excellence",
+    desc: "We empower organizations through expert training, institutional development, and strategic advisory rooted in legacy.",
+  },
+  {
+    image: divine2,
+    title: "Building Leaders, Transforming Organizations",
+    desc: "Comprehensive professional development programmes designed to build leadership capacity and strengthen HR systems.",
+  },
+  {
+    image: divine3,
+    title: "Where Passion Forges Progress",
+    desc: "Evidence-based interventions that deliver measurable results for government, corporate, and educational institutions across East Africa.",
+  },
+];
 
 const services = [
   { title: "Supervision Skills for Managers", icon: Users, desc: "Develop effective communication, leadership, and performance management skills." },
@@ -53,69 +73,95 @@ const stats = [
 ];
 
 const Index = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const prev = () => setCurrent((p) => (p - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((p) => (p + 1) % slides.length);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[600px] py-16 lg:py-0">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              className="relative z-10"
-            >
-              <motion.p variants={fadeUp} custom={0} className="gold-accent mb-4">
-                Where Passion Forges Progress
-              </motion.p>
-              <motion.h1
-                variants={fadeUp}
-                custom={1}
-                className="text-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-primary-foreground leading-tight mb-6"
-              >
-                Strategic Wisdom for{" "}
-                <span className="text-accent">Modern Heritage</span>
-              </motion.h1>
-              <motion.p
-                variants={fadeUp}
-                custom={2}
-                className="text-primary-foreground/80 text-base lg:text-lg max-w-lg mb-8 leading-relaxed"
-              >
-                Consultancy rooted in legacy, engineered for the future. We empower organizations through expert training, institutional development, and strategic advisory.
-              </motion.p>
-              <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
-                <Link
-                  to="/services"
-                  className="bg-accent text-accent-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wide transition-all hover:-translate-y-px hover:shadow-lg active:scale-[0.98] flex items-center gap-2"
-                >
-                  Our Services <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="border border-primary-foreground/30 text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wide transition-all hover:bg-primary-foreground/10"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
-            </motion.div>
+      {/* Hero Slider */}
+      <section className="relative h-[550px] sm:h-[620px] lg:h-[700px] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slides[current].image})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+          </motion.div>
+        </AnimatePresence>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative flex justify-center lg:justify-end"
-            >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-accent/20 rounded-lg -rotate-3" />
-                <img
-                  src={drJoan}
-                  alt="Dr. Joan Ngunnzi Mwende - CEO, Divine Heritage Consultancy"
-                  className="relative rounded-lg w-72 sm:w-80 lg:w-96 object-cover shadow-heritage-lg"
-                />
-              </div>
-            </motion.div>
-          </div>
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+          <motion.div
+            key={`text-${current}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="max-w-2xl"
+          >
+            <h1 className="text-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-primary-foreground leading-tight mb-6">
+              {slides[current].title}
+            </h1>
+            <p className="text-primary-foreground/85 text-base lg:text-lg max-w-xl mb-8 leading-relaxed">
+              {slides[current].desc}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                to="/services"
+                className="bg-heritage-green text-heritage-green-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wide transition-all hover:-translate-y-px hover:shadow-lg active:scale-[0.98] flex items-center gap-2"
+              >
+                LEARN MORE <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="border border-primary-foreground/40 text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm tracking-wide transition-all hover:bg-primary-foreground/10"
+              >
+                CONTACT US
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Slider controls */}
+        <button
+          onClick={prev}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-primary-foreground/20 hover:bg-primary-foreground/40 text-primary-foreground p-2 rounded-full transition-colors backdrop-blur-sm"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-primary-foreground/20 hover:bg-primary-foreground/40 text-primary-foreground p-2 rounded-full transition-colors backdrop-blur-sm"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        {/* Dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                i === current ? "bg-heritage-green scale-110" : "bg-primary-foreground/40"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -133,7 +179,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About teaser */}
+      {/* About teaser with Dr. Joan green coat */}
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -142,11 +188,13 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="relative"
             >
+              <div className="absolute -inset-3 bg-accent/15 rounded-lg rotate-1" />
               <img
-                src={trainingImg}
-                alt="Professional training workshop"
-                className="rounded-lg shadow-heritage-lg w-full object-cover h-80 lg:h-[420px]"
+                src={joanGreen}
+                alt="Dr. Joan Ngunnzi Mwende - CEO, Divine Heritage Consultancy"
+                className="relative rounded-lg w-full object-cover h-80 lg:h-[450px] shadow-heritage-lg"
               />
             </motion.div>
             <motion.div
@@ -169,7 +217,7 @@ const Index = () => {
                 to="/about"
                 className="inline-flex items-center gap-2 text-heritage-green font-semibold text-sm hover:gap-3 transition-all"
               >
-                Meet the Founder <ArrowRight className="w-4 h-4" />
+                Learn More About Us <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
           </div>
@@ -220,6 +268,110 @@ const Index = () => {
             >
               View All Courses <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Organizations / Impact gallery */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="gold-accent mb-3">Our Impact</p>
+            <h2 className="text-display text-3xl lg:text-4xl text-foreground mb-4">
+              Transforming Organizations Across East Africa
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From government ministries to corporate boardrooms, our evidence-based interventions have built lasting capacity in over 50 organizations.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative group overflow-hidden rounded-lg"
+            >
+              <img src={joanGroup} alt="Professional training delegates" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="font-serif text-lg font-semibold text-primary-foreground">Institutional Training</h3>
+                <p className="text-primary-foreground/80 text-sm">Building leadership across government and corporate sectors</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative group overflow-hidden rounded-lg"
+            >
+              <img src={joanWorkshop} alt="Workshop participants in training session" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="font-serif text-lg font-semibold text-primary-foreground">Professional Workshops</h3>
+                <p className="text-primary-foreground/80 text-sm">Hands-on skills development for HR professionals</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative group overflow-hidden rounded-lg"
+            >
+              <img src={joanConference} alt="International conference delegates" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <h3 className="font-serif text-lg font-semibold text-primary-foreground">Global Conferences</h3>
+                <p className="text-primary-foreground/80 text-sm">Thought leadership at international forums</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Impact with selfie photo */}
+      <section className="py-24 bg-primary">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Community Engagement</p>
+              <h2 className="text-display text-3xl lg:text-4xl text-primary-foreground mb-6">
+                Empowering Communities, One Programme at a Time
+              </h2>
+              <p className="text-primary-foreground/80 leading-relaxed mb-4">
+                Beyond corporate boardrooms, Divine Heritage Consultancy is committed to grassroots impact. Through partnerships with organizations like Plan International, we champion child protection, teacher welfare, and community-driven development.
+              </p>
+              <p className="text-primary-foreground/80 leading-relaxed mb-8">
+                Our initiatives have trained hundreds of community leaders, educators, and public servants, creating ripple effects that transform entire communities.
+              </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3 rounded-sm font-semibold text-sm transition-all hover:-translate-y-px hover:shadow-lg active:scale-[0.98]"
+              >
+                Our Story <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+            >
+              <img
+                src={joanSelfie}
+                alt="Dr. Joan with community leaders and educators"
+                className="rounded-lg w-full object-cover h-80 lg:h-[420px] shadow-heritage-lg"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
