@@ -188,6 +188,17 @@ const About = () => {
               </p>
             </motion.div>
           </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href="https://womawordsliterary.wordpress.com/2020/05/06/conversations-inside-candidtalkstudio-with-iconic-embu-county-minister-joan-mwende-kiema-ngunzi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold text-sm transition-colors underline underline-offset-4"
+            >
+              Want to know more about Dr. Joan? Read this feature →
+            </a>
+          </div>
         </div>
       </section>
 
