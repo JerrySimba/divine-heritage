@@ -37,13 +37,10 @@ const slides = [
   },
 ];
 
-const services = [
-  { title: "Supervision Skills for Managers", icon: Users, desc: "Develop effective communication, leadership, and performance management skills." },
-  { title: "Mental Health Training for HR", icon: BookOpen, desc: "Build awareness and skills for early identification and support of workplace mental health." },
-  { title: "Gender & Diversity Mainstreaming", icon: Award, desc: "Strengthen leadership for inclusive workplaces with practical gender integration tools." },
-  { title: "Interview Skills for HR Managers", icon: Users, desc: "Master preparation, communication, and psychosocial tools for identifying high performers." },
-  { title: "Investigation Skills for HR", icon: BookOpen, desc: "Build practical skills in evidence gathering, interviewing, and reporting." },
-  { title: "Succession Management", icon: Award, desc: "Acquire tools for talent identification, assessment, and succession strategy implementation." },
+const serviceHighlights = [
+  { title: "Professional Training Programmes", image: serv1, desc: "Comprehensive courses in supervision, mental health, and leadership designed for managers and HR professionals across East Africa." },
+  { title: "Institutional Development & Advisory", image: serv2, desc: "Strategic consultancy for government, corporate, and educational institutions to strengthen systems, policies, and organizational capacity." },
+  { title: "Certification & Accreditation", image: home4, desc: "Accredited training programmes with professional certification in supervision skills, gender mainstreaming, succession management, and more." },
 ];
 
 const events = [
