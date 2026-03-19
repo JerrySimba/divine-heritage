@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="bg-foreground text-primary-foreground">
         <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <img src={logo} alt="Divine Heritage Consultancy" className="h-12 mb-4 brightness-0 invert" />
+            <img src={logo} alt="Divine Heritage Consultancy" className="h-12 mb-4" />
             <p className="text-sm leading-relaxed opacity-70">
               Where passion forges progress. Divine Heritage Consultancy delivers expert training and consultancy services for institutional transformation.
             </p>
