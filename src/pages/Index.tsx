@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Award, BookOpen, Calendar, Clock, MapPin, ChevronRight, ChevronLeft } from "lucide-react";
+import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import divine1 from "@/assets/divine1.jpg";
-import divine2 from "@/assets/divine2.jpg";
-import divine3 from "@/assets/divine3.jpg";
+import divine2 from "@/assets/serv3.jpg";
+import divine3 from "@/assets/home1.jpg";
 import joanGreen from "@/assets/joan-green.jpg";
 import joanGroup from "@/assets/joan-group.jpg";
 import joanWorkshop from "@/assets/joan-workshop.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
-import eventImg from "@/assets/event-conference.jpg";
+import serv1 from "@/assets/serv1.jpg";
+import serv2 from "@/assets/serv2.jpg";
+import home4 from "@/assets/home4.jpg";
+import upc1 from "@/assets/upc1.jpg";
+import upc2 from "@/assets/upc2.jpg";
+import upc3 from "@/assets/upc3.jpg";
 
 const slides = [
   {
@@ -32,37 +37,16 @@ const slides = [
   },
 ];
 
-const services = [
-  { title: "Supervision Skills for Managers", icon: Users, desc: "Develop effective communication, leadership, and performance management skills." },
-  { title: "Mental Health Training for HR", icon: BookOpen, desc: "Build awareness and skills for early identification and support of workplace mental health." },
-  { title: "Gender & Diversity Mainstreaming", icon: Award, desc: "Strengthen leadership for inclusive workplaces with practical gender integration tools." },
-  { title: "Interview Skills for HR Managers", icon: Users, desc: "Master preparation, communication, and psychosocial tools for identifying high performers." },
-  { title: "Investigation Skills for HR", icon: BookOpen, desc: "Build practical skills in evidence gathering, interviewing, and reporting." },
-  { title: "Succession Management", icon: Award, desc: "Acquire tools for talent identification, assessment, and succession strategy implementation." },
+const serviceHighlights = [
+  { title: "Professional Training Programmes", image: serv1, desc: "Comprehensive courses in supervision, mental health, and leadership designed for managers and HR professionals across East Africa." },
+  { title: "Institutional Development & Advisory", image: serv2, desc: "Strategic consultancy for government, corporate, and educational institutions to strengthen systems, policies, and organizational capacity." },
+  { title: "Certification & Accreditation", image: home4, desc: "Accredited training programmes with professional certification in supervision skills, gender mainstreaming, succession management, and more." },
 ];
 
 const events = [
-  {
-    date: "15 APR",
-    title: "Leadership Excellence Workshop",
-    location: "Nairobi, Kenya",
-    time: "9:00 AM - 5:00 PM",
-    seats: "Limited Seats",
-  },
-  {
-    date: "22 MAY",
-    title: "HR Mental Health Awareness Summit",
-    location: "Virtual Event",
-    time: "10:00 AM - 3:00 PM",
-    seats: "Open Registration",
-  },
-  {
-    date: "10 JUN",
-    title: "Diversity & Inclusion Conference",
-    location: "Mombasa, Kenya",
-    time: "8:30 AM - 4:30 PM",
-    seats: "Limited Seats",
-  },
+  { image: upc1, title: "Coming Soon", desc: "Keep checking this page for exciting upcoming events and training opportunities." },
+  { image: upc2, title: "Coming Soon", desc: "New workshops and professional development programmes are on the way." },
+  { image: upc3, title: "Coming Soon", desc: "Stay tuned for our latest conferences, summits, and institutional training events." },
 ];
 
 const stats = [
@@ -237,8 +221,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, i) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {serviceHighlights.map((service, i) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 16 }}
@@ -246,17 +230,11 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
                 whileHover={{ y: -4 }}
-                className="card-heritage group cursor-pointer"
+                className="card-heritage group cursor-pointer overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary" />
-                </div>
+                <img src={service.image} alt={service.title} className="w-full h-48 object-cover rounded-md mb-4" />
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.desc}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent font-bold text-lg">USD 650</span>
-                  <span className="text-xs text-muted-foreground">5 Days · 40 Hrs</span>
-                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">{service.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -266,7 +244,7 @@ const Index = () => {
               to="/services"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm transition-all hover:-translate-y-px hover:shadow-lg active:scale-[0.98]"
             >
-              View All Courses <ArrowRight className="w-4 h-4" />
+              View All Services <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -389,7 +367,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {events.map((event, i) => (
               <motion.div
-                key={event.title}
+                key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -398,31 +376,12 @@ const Index = () => {
                 className="card-heritage group overflow-hidden"
               >
                 <img
-                  src={eventImg}
+                  src={event.image}
                   alt={event.title}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl font-serif font-bold text-primary tabular-nums leading-none">
-                    {event.date.split(" ")[0]}
-                  </span>
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                    {event.date.split(" ")[1]}
-                  </span>
-                  {event.seats === "Limited Seats" && (
-                    <span className="ml-auto gold-accent text-[10px] bg-accent/10 px-2 py-1 rounded">
-                      {event.seats}
-                    </span>
-                  )}
-                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{event.title}</h3>
-                <div className="flex flex-col gap-1 text-xs text-muted-foreground mb-4">
-                  <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {event.location}</span>
-                  <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {event.time}</span>
-                </div>
-                <button className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-heritage-green border border-heritage-green/30 py-2 rounded-sm hover:bg-heritage-green hover:text-heritage-green-foreground transition-all">
-                  Register <ChevronRight className="w-4 h-4" />
-                </button>
+                <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
               </motion.div>
             ))}
           </div>
