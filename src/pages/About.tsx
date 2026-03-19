@@ -231,9 +231,9 @@ const About = () => {
               transition={{ delay: 0.15 }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" className="rounded-lg w-full h-52 object-cover shadow-heritage" />
-              <img src={joanSelfie} alt="Dr. Joan with community members" className="rounded-lg w-full h-52 object-cover shadow-heritage" />
-              <img src={joanGreen} alt="Dr. Joan in a meeting" className="rounded-lg w-full h-52 object-cover shadow-heritage col-span-2" />
+              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanSelfie} alt="Dr. Joan with community members" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanGreen} alt="Dr. Joan in a meeting" className="rounded-lg w-full h-64 object-contain shadow-heritage col-span-2 bg-secondary/30" />
             </motion.div>
           </div>
         </div>
