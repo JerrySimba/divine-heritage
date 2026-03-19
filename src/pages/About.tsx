@@ -31,7 +31,7 @@ const career = [
   { role: "CEO", org: "Beacon Teachers Africa (to date)" },
   { role: "Lead Consultant — Endline Evaluation (Somalia, Puntland, Jubaland, Somaliland)", org: "Savanna Consultancy / NCA & SCI GBV Project" },
   { role: "Key Expert Consultant, SEQIP Project", org: "The World Bank" },
-  { role: "CEC Member — Education, Youth & Sports, Gender, Health, Trade & Tourism", org: "County Government of Embu" },
+  { role: "Minister for Education, Youth and Sports, Health, Trade, Tourism and Investment, CEC Member for Gender, Children, Culture and Social Services", org: "County Government of Embu" },
   { role: "General Manager, Education & Leadership", org: "Equity Group Foundation" },
 ];
 
