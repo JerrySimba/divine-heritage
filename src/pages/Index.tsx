@@ -367,7 +367,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {events.map((event, i) => (
               <motion.div
-                key={event.title}
+                key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -376,31 +376,12 @@ const Index = () => {
                 className="card-heritage group overflow-hidden"
               >
                 <img
-                  src={eventImg}
+                  src={event.image}
                   alt={event.title}
                   className="w-full h-48 object-cover rounded-md mb-4"
                 />
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl font-serif font-bold text-primary tabular-nums leading-none">
-                    {event.date.split(" ")[0]}
-                  </span>
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                    {event.date.split(" ")[1]}
-                  </span>
-                  {event.seats === "Limited Seats" && (
-                    <span className="ml-auto gold-accent text-[10px] bg-accent/10 px-2 py-1 rounded">
-                      {event.seats}
-                    </span>
-                  )}
-                </div>
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{event.title}</h3>
-                <div className="flex flex-col gap-1 text-xs text-muted-foreground mb-4">
-                  <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {event.location}</span>
-                  <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {event.time}</span>
-                </div>
-                <button className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-heritage-green border border-heritage-green/30 py-2 rounded-sm hover:bg-heritage-green hover:text-heritage-green-foreground transition-all">
-                  Register <ChevronRight className="w-4 h-4" />
-                </button>
+                <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
               </motion.div>
             ))}
           </div>
