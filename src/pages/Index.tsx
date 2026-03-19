@@ -44,27 +44,9 @@ const serviceHighlights = [
 ];
 
 const events = [
-  {
-    date: "15 APR",
-    title: "Leadership Excellence Workshop",
-    location: "Nairobi, Kenya",
-    time: "9:00 AM - 5:00 PM",
-    seats: "Limited Seats",
-  },
-  {
-    date: "22 MAY",
-    title: "HR Mental Health Awareness Summit",
-    location: "Virtual Event",
-    time: "10:00 AM - 3:00 PM",
-    seats: "Open Registration",
-  },
-  {
-    date: "10 JUN",
-    title: "Diversity & Inclusion Conference",
-    location: "Mombasa, Kenya",
-    time: "8:30 AM - 4:30 PM",
-    seats: "Limited Seats",
-  },
+  { image: upc1, title: "Coming Soon", desc: "Keep checking this page for exciting upcoming events and training opportunities." },
+  { image: upc2, title: "Coming Soon", desc: "New workshops and professional development programmes are on the way." },
+  { image: upc3, title: "Coming Soon", desc: "Stay tuned for our latest conferences, summits, and institutional training events." },
 ];
 
 const stats = [
