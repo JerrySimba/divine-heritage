@@ -5,14 +5,19 @@ import { ArrowRight, Users, Award, BookOpen, Calendar, Clock, MapPin, ChevronRig
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import divine1 from "@/assets/divine1.jpg";
-import divine2 from "@/assets/divine2.jpg";
-import divine3 from "@/assets/divine3.jpg";
+import divine2 from "@/assets/serv3.jpg";
+import divine3 from "@/assets/home1.jpg";
 import joanGreen from "@/assets/joan-green.jpg";
 import joanGroup from "@/assets/joan-group.jpg";
 import joanWorkshop from "@/assets/joan-workshop.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
-import eventImg from "@/assets/event-conference.jpg";
+import serv1 from "@/assets/serv1.jpg";
+import serv2 from "@/assets/serv2.jpg";
+import home4 from "@/assets/home4.jpg";
+import upc1 from "@/assets/upc1.jpg";
+import upc2 from "@/assets/upc2.jpg";
+import upc3 from "@/assets/upc3.jpg";
 
 const slides = [
   {
