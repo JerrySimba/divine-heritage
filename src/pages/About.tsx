@@ -31,7 +31,7 @@ const career = [
   { role: "CEO", org: "Beacon Teachers Africa (to date)" },
   { role: "Lead Consultant — Endline Evaluation (Somalia, Puntland, Jubaland, Somaliland)", org: "Savanna Consultancy / NCA & SCI GBV Project" },
   { role: "Key Expert Consultant, SEQIP Project", org: "The World Bank" },
-  { role: "CEC Member — Education, Youth & Sports, Gender, Health, Trade & Tourism", org: "County Government of Embu" },
+  { role: "Minister for Education, Youth and Sports, Health, Trade, Tourism and Investment, CEC Member for Gender, Children, Culture and Social Services", org: "County Government of Embu" },
   { role: "General Manager, Education & Leadership", org: "Equity Group Foundation" },
 ];
 
@@ -188,6 +188,17 @@ const About = () => {
               </p>
             </motion.div>
           </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href="https://womawordsliterary.wordpress.com/2020/05/06/conversations-inside-candidtalkstudio-with-iconic-embu-county-minister-joan-mwende-kiema-ngunzi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold text-sm transition-colors underline underline-offset-4"
+            >
+              Want to know more about Dr. Joan? Read this feature →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -220,9 +231,9 @@ const About = () => {
               transition={{ delay: 0.15 }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" className="rounded-lg w-full h-52 object-cover shadow-heritage" />
-              <img src={joanSelfie} alt="Dr. Joan with community members" className="rounded-lg w-full h-52 object-cover shadow-heritage" />
-              <img src={joanGreen} alt="Dr. Joan in a meeting" className="rounded-lg w-full h-52 object-cover shadow-heritage col-span-2" />
+              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanSelfie} alt="Dr. Joan with community members" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanGreen} alt="Dr. Joan in a meeting" className="rounded-lg w-full h-64 object-contain shadow-heritage col-span-2 bg-secondary/30" />
             </motion.div>
           </div>
         </div>
