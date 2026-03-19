@@ -221,8 +221,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, i) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {serviceHighlights.map((service, i) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 16 }}
@@ -230,17 +230,11 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
                 whileHover={{ y: -4 }}
-                className="card-heritage group cursor-pointer"
+                className="card-heritage group cursor-pointer overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary" />
-                </div>
+                <img src={service.image} alt={service.title} className="w-full h-48 object-cover rounded-md mb-4" />
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.desc}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-accent font-bold text-lg">USD 650</span>
-                  <span className="text-xs text-muted-foreground">5 Days · 40 Hrs</span>
-                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">{service.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -250,7 +244,7 @@ const Index = () => {
               to="/services"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-sm font-semibold text-sm transition-all hover:-translate-y-px hover:shadow-lg active:scale-[0.98]"
             >
-              View All Courses <ArrowRight className="w-4 h-4" />
+              View All Services <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
