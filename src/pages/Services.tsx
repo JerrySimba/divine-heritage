@@ -192,6 +192,22 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Mentorship Programmes */}
+      <section className="py-24 bg-secondary/50">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <p className="gold-accent mb-3">Mentorship</p>
+          <h2 className="text-display text-3xl lg:text-4xl text-foreground mb-6">
+            Robust Mentorship Programmes
+          </h2>
+          <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+            Beyond our scheduled training courses, Divine Heritage Consultancy runs robust mentorship programmes tailored for both seasoned professionals and fresh graduates. Our mentorship approach pairs individuals with experienced industry leaders who provide guidance, career coaching, and practical insights for navigating complex workplace dynamics.
+          </p>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Whether you are a young professional seeking direction or an established leader looking to refine your executive presence, our mentorship programmes offer a structured pathway to accelerated growth and meaningful professional impact.
+          </p>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
