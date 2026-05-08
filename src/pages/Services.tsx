@@ -133,7 +133,7 @@ const Services = () => {
             Professional Training Programmes
           </h1>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-            Each course runs for 5 days (40 hours) and is designed to deliver practical, transformative skills for professionals at all levels.
+            Each course runs for 5 days (40 hours) and is designed to deliver practical, transformative skills for professionals at all levels. We also design bespoke programmes for institutions according to established needs.
           </p>
         </div>
       </section>

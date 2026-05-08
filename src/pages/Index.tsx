@@ -53,7 +53,7 @@ const stats = [
   { value: "15+", label: "Years of Experience" },
   { value: "500+", label: "Professionals Trained" },
   { value: "50+", label: "Organizations Served" },
-  { value: "8", label: "Specialized Courses" },
+  { value: "12", label: "Specialized Courses" },
 ];
 
 const Index = () => {
