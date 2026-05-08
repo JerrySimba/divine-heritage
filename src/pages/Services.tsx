@@ -83,6 +83,42 @@ const courses = [
       "Enhance Policy Implementation and Stakeholder Engagement",
     ],
   },
+  {
+    title: "Culture and Diversity Management",
+    objectives: [
+      "Deepen Understanding of Cultural Competence in the Workplace",
+      "Develop Strategies for Managing Multicultural Teams",
+      "Build Inclusive Policies that Respect Diverse Backgrounds",
+      "Strengthen Communication Across Cultural Boundaries",
+    ],
+  },
+  {
+    title: "Gender and Inclusion Management",
+    objectives: [
+      "Master Gender-Responsive Policy Development",
+      "Build Skills for Inclusive Leadership and Decision Making",
+      "Integrate Inclusion Metrics into Organizational Systems",
+      "Strengthen Advocacy for Equity at all Levels",
+    ],
+  },
+  {
+    title: "Life Skills",
+    objectives: [
+      "Develop Critical Thinking and Problem-Solving Abilities",
+      "Build Effective Communication and Interpersonal Skills",
+      "Strengthen Emotional Intelligence and Self-Awareness",
+      "Enhance Personal and Professional Goal Setting",
+    ],
+  },
+  {
+    title: "Disaster Management",
+    objectives: [
+      "Build Knowledge of Disaster Risk Reduction Frameworks",
+      "Develop Emergency Response and Coordination Skills",
+      "Strengthen Community Resilience and Preparedness Planning",
+      "Improve Post-Disaster Recovery and Rehabilitation Strategies",
+    ],
+  },
 ];
 
 const Services = () => {
