@@ -138,7 +138,7 @@ const About = () => {
           <div className="text-center mb-16">
             <p className="text-accent font-semibold text-xs uppercase tracking-widest mb-3">Meet the Founder</p>
             <h2 className="text-display text-3xl lg:text-4xl text-primary-foreground">
-              Dr. Joan Ngunnzi Mwende
+              Dr. Joan Mwende Kiema Ngunnzi
             </h2>
             <p className="text-primary-foreground/70 mt-2 text-lg font-serif italic">
               Educationist · Global Development Strategist · Leader Par Excellence
@@ -157,7 +157,7 @@ const About = () => {
                 <div className="absolute -inset-3 bg-accent/20 rounded-lg rotate-2" />
                 <img
                   src={drJoan}
-                  alt="Dr. Joan Ngunnzi Mwende"
+                  alt="Dr. Joan Mwende Kiema Ngunnzi"
                   className="relative rounded-lg w-full max-w-md mx-auto object-cover shadow-heritage-lg"
                 />
               </div>
@@ -172,11 +172,11 @@ const About = () => {
               className="lg:col-span-3 space-y-5"
             >
               <p className="text-primary-foreground/85 leading-relaxed">
-                An acclaimed educationist, global development strategist, and leader par excellence — Dr. Joan Ngunnzi Mwende is the visionary behind Divine Heritage Consultancy. An accomplished author spanning nearly every literary, study, and educational genre, and a publisher at large, she brings a rare blend of academic depth and practical wisdom to everything she touches.
+                An acclaimed educationist, global development strategist, and leader par excellence — Dr. Joan Mwende Kiema Ngunnzi is the visionary behind Divine Heritage Consultancy. An accomplished author spanning nearly every literary, study, and educational genre, and a publisher at large, she brings a rare blend of academic depth and practical wisdom to everything she touches.
               </p>
 
               <p className="text-primary-foreground/85 leading-relaxed">
-                Dr. Joan's public service journey began as the Embu County Minister for Gender, Children, Culture and Social Services, where she established initiatives to unite women artisans through exhibitions and market support, and led the development of the County Gender and Child Protection policies. Within a single year, she spearheaded a baseline survey on Gender-Based Violence and Disability and was elected Chair of the Gender County Ministers Caucus — a portfolio she used to train scores of women in gender and leadership.
+                Dr. Joan Mwende Kiema Ngunnzi's public service journey began as the Embu County Minister for Gender, Children, Culture and Social Services, where she established initiatives to unite women artisans through exhibitions and market support, and led the development of the County Gender and Child Protection policies. Within a single year, she spearheaded a baseline survey on Gender-Based Violence and Disability and was elected Chair of the Gender County Ministers Caucus — a portfolio she used to train scores of women in gender and leadership.
               </p>
 
               <p className="text-primary-foreground/85 leading-relaxed">
@@ -196,7 +196,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold text-sm transition-colors underline underline-offset-4"
             >
-              Want to know more about Dr. Joan? Read this feature →
+              Want to know more about Dr. Joan Mwende Kiema Ngunnzi? Read this feature →
             </a>
           </div>
         </div>
@@ -217,7 +217,7 @@ const About = () => {
                 A Gift to Community & Language
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                For her community, Dr. Joan has authored six course books in her local Kikamba language — a gift that helps children learn to read and write in their mother tongue, giving them a strong grounding for language learning. These books have since found their way to Harvard University, where they are used to teach Kikamba.
+                For her community, Dr. Joan Mwende Kiema Ngunnzi has authored six course books in her local Kikamba language — a gift that helps children learn to read and write in their mother tongue, giving them a strong grounding for language learning. These books have since found their way to Harvard University, where they are used to teach Kikamba.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 She is also actively involved in educating local communities on indigenous foods as a measure to reduce malnutrition and cancer. A poet, songwriter, and educator at heart, she writes poetry and teaches it to youth whenever she has the chance — and sings at the slightest provocation.
