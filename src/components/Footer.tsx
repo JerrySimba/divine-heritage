@@ -54,6 +54,9 @@ const Footer = () => {
               <p>Gender & Diversity</p>
               <p>Interview Skills</p>
               <p>Strategic Retirement</p>
+              <p>Culture & Diversity Management</p>
+              <p>Life Skills & Disaster Management</p>
+              <p>Mentorship Programmes</p>
             </div>
           </div>
 

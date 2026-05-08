@@ -53,7 +53,7 @@ const stats = [
   { value: "15+", label: "Years of Experience" },
   { value: "500+", label: "Professionals Trained" },
   { value: "50+", label: "Organizations Served" },
-  { value: "8", label: "Specialized Courses" },
+  { value: "12", label: "Specialized Courses" },
 ];
 
 const Index = () => {
@@ -177,7 +177,7 @@ const Index = () => {
               <div className="absolute -inset-3 bg-accent/15 rounded-lg rotate-1" />
               <img
                 src={joanGreen}
-                alt="Dr. Joan Ngunnzi Mwende - CEO, Divine Heritage Consultancy"
+                alt="Dr. Joan Mwende Kiema Ngunnzi - CEO, Divine Heritage Consultancy"
                 className="relative rounded-lg w-full object-cover h-80 lg:h-[450px] shadow-heritage-lg"
               />
             </motion.div>
@@ -192,7 +192,7 @@ const Index = () => {
                 An Authoritative Approach to Institutional Development
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Founded by Dr. Joan Ngunnzi Mwende, Divine Heritage Consultancy is a premier training and advisory firm headquartered in Nairobi, Kenya. We deliver specialized professional development programs designed to build leadership capacity, strengthen HR systems, and foster inclusive organizational cultures.
+                Founded by Dr. Joan Mwende Kiema Ngunnzi, Divine Heritage Consultancy is a premier training and advisory firm headquartered in Nairobi, Kenya. We deliver specialized professional development programs designed to build leadership capacity, strengthen HR systems, and foster inclusive organizational cultures.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 With over 15 years of institutional transformation experience, our programs are trusted by government entities, corporate organizations, and educational institutions across East Africa.
@@ -346,7 +346,7 @@ const Index = () => {
             >
               <img
                 src={joanSelfie}
-                alt="Dr. Joan with community leaders and educators"
+                alt="Dr. Joan Mwende Kiema Ngunnzi with community leaders and educators"
                 className="rounded-lg w-full object-cover h-80 lg:h-[420px] shadow-heritage-lg"
               />
             </motion.div>

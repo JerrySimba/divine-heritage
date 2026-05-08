@@ -83,6 +83,42 @@ const courses = [
       "Enhance Policy Implementation and Stakeholder Engagement",
     ],
   },
+  {
+    title: "Culture and Diversity Management",
+    objectives: [
+      "Deepen Understanding of Cultural Competence in the Workplace",
+      "Develop Strategies for Managing Multicultural Teams",
+      "Build Inclusive Policies that Respect Diverse Backgrounds",
+      "Strengthen Communication Across Cultural Boundaries",
+    ],
+  },
+  {
+    title: "Gender and Inclusion Management",
+    objectives: [
+      "Master Gender-Responsive Policy Development",
+      "Build Skills for Inclusive Leadership and Decision Making",
+      "Integrate Inclusion Metrics into Organizational Systems",
+      "Strengthen Advocacy for Equity at all Levels",
+    ],
+  },
+  {
+    title: "Life Skills",
+    objectives: [
+      "Develop Critical Thinking and Problem-Solving Abilities",
+      "Build Effective Communication and Interpersonal Skills",
+      "Strengthen Emotional Intelligence and Self-Awareness",
+      "Enhance Personal and Professional Goal Setting",
+    ],
+  },
+  {
+    title: "Disaster Management",
+    objectives: [
+      "Build Knowledge of Disaster Risk Reduction Frameworks",
+      "Develop Emergency Response and Coordination Skills",
+      "Strengthen Community Resilience and Preparedness Planning",
+      "Improve Post-Disaster Recovery and Rehabilitation Strategies",
+    ],
+  },
 ];
 
 const Services = () => {
@@ -97,7 +133,7 @@ const Services = () => {
             Professional Training Programmes
           </h1>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-            Each course runs for 5 days (40 hours) and is designed to deliver practical, transformative skills for professionals at all levels.
+            Each course runs for 5 days (40 hours) and is designed to deliver practical, transformative skills for professionals at all levels. We also design bespoke programmes for institutions according to established needs.
           </p>
         </div>
       </section>
@@ -153,6 +189,22 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Mentorship Programmes */}
+      <section className="py-24 bg-secondary/50">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <p className="gold-accent mb-3">Mentorship</p>
+          <h2 className="text-display text-3xl lg:text-4xl text-foreground mb-6">
+            Robust Mentorship Programmes
+          </h2>
+          <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+            Beyond our scheduled training courses, Divine Heritage Consultancy runs robust mentorship programmes tailored for both seasoned professionals and fresh graduates. Our mentorship approach pairs individuals with experienced industry leaders who provide guidance, career coaching, and practical insights for navigating complex workplace dynamics.
+          </p>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Whether you are a young professional seeking direction or an established leader looking to refine your executive presence, our mentorship programmes offer a structured pathway to accelerated growth and meaningful professional impact.
+          </p>
         </div>
       </section>
 
