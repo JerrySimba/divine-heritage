@@ -66,8 +66,8 @@ const Footer = () => {
               <a href="tel:+254798645696" className="flex items-start gap-2 opacity-70 hover:opacity-100 transition-opacity">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0" /> +254 798 645 696
               </a>
-              <a href="mailto:divineheritageconsultancy@gmail.com" className="flex items-start gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                <Mail className="w-4 h-4 mt-0.5 shrink-0" /> divineheritageconsultancy@gmail.com
+              <a href="mailto:info@divineheritageconsultancy.org" className="flex items-start gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                <Mail className="w-4 h-4 mt-0.5 shrink-0" /> info@divineheritageconsultancy.org
               </a>
               <div className="flex items-start gap-2 opacity-70">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />

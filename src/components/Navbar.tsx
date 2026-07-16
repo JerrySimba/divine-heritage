@@ -23,8 +23,8 @@ const Navbar = () => {
             <a href="tel:+254798645696" className="flex items-center gap-1.5 hover:text-accent transition-colors">
               <Phone className="w-3.5 h-3.5" /> +254 798 645 696
             </a>
-            <a href="mailto:divineheritageconsultancy@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
-              <Mail className="w-3.5 h-3.5" /> divineheritageconsultancy@gmail.com
+            <a href="mailto:info@divineheritageconsultancy.org" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
+              <Mail className="w-3.5 h-3.5" /> info@divineheritageconsultancy.org
             </a>
           </div>
           <div className="flex items-center gap-1.5">

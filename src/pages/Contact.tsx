@@ -66,12 +66,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-sm">Email</p>
-                    <a href="mailto:divineheritageconsultancy@gmail.com" className="text-muted-foreground text-sm hover:text-heritage-green transition-colors">
-                      divineheritageconsultancy@gmail.com
+                    <a href="mailto:info@divineheritageconsultancy.org" className="text-muted-foreground text-sm hover:text-heritage-green transition-colors">
+                      info@divineheritageconsultancy.org
                     </a>
                     <br />
-                    <a href="mailto:divineheritageconsultancy@yahoo.com" className="text-muted-foreground text-sm hover:text-heritage-green transition-colors">
-                      divineheritageconsultancy@yahoo.com
+                    <a href="mailto:joan.ngunnzi@divineheritageconsultancy.org" className="text-muted-foreground text-sm hover:text-heritage-green transition-colors">
+                      joan.ngunnzi@divineheritageconsultancy.org
                     </a>
                   </div>
                 </div>
