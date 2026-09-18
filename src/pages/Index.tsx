@@ -13,7 +13,7 @@ import joanWorkshop from "@/assets/joan-workshop.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
 import serv1 from "@/assets/serv1.jpg";
-import serv2 from "@/assets/serv2.jpg";
+import institutionalAdvisory from "@/assets/institutional-advisory.jpg";
 import home4 from "@/assets/home4.jpg";
 import upc1 from "@/assets/upc1.jpg";
 import upc2 from "@/assets/upc2.jpg";
@@ -39,7 +39,7 @@ const slides = [
 
 const serviceHighlights = [
   { title: "Professional Training Programmes", image: serv1, desc: "Comprehensive courses in supervision, mental health, and leadership designed for managers and HR professionals across East Africa." },
-  { title: "Institutional Development & Advisory", image: serv2, desc: "Strategic consultancy for government, corporate, and educational institutions to strengthen systems, policies, and organizational capacity." },
+  { title: "Institutional Development & Advisory", image: institutionalAdvisory, desc: "Strategic consultancy for government, corporate, and educational institutions to strengthen systems, policies, and organizational capacity." },
   { title: "Certification & Accreditation", image: home4, desc: "Accredited training programmes with professional certification in supervision skills, gender mainstreaming, succession management, and more." },
 ];
 
