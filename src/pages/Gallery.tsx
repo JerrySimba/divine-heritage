@@ -7,17 +7,13 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import galleryMeeting from "@/assets/gallery-meeting.jpg";
 import galleryAssessment from "@/assets/gallery-assessment.jpg";
 import gallerySession from "@/assets/gallery-session.jpg";
 import galleryCommunity from "@/assets/gallery-community.jpg";
+import galleryTop100 from "@/assets/gallery-top100.jpg";
+import galleryElimu from "@/assets/gallery-elimu.jpg";
 
 const photos = [
-  {
-    src: galleryMeeting,
-    alt: "Dr. Joan Mwende Kiema Ngunnzi in a professional meeting",
-    caption: "Strategic advisory in session",
-  },
   {
     src: gallerySession,
     alt: "Dr. Joan Mwende Kiema Ngunnzi during a working session",
@@ -30,8 +26,18 @@ const photos = [
   },
   {
     src: galleryCommunity,
-    alt: "Dr. Joan Mwende Kiema Ngunnzi at a community book engagement",
-    caption: "Community engagement and thought leadership",
+    alt: "Closing the Leak book launch with Dr. Joan Mwende Kiema Ngunnzi",
+    caption: "Closing the Leak book launch",
+  },
+  {
+    src: galleryTop100,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi recognised among the Top 100 International Leaders 2026",
+    caption: "Top 100 International Leaders 2026",
+  },
+  {
+    src: galleryElimu,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi speaking at the Elimu Scholarship Programme",
+    caption: "Elimu Scholarship Programme",
   },
 ];
 
@@ -66,7 +72,9 @@ const Gallery = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
                 onClick={() => setActive(photo)}
-                className="group relative overflow-hidden rounded-lg text-left shadow-heritage"
+                className={`group relative overflow-hidden rounded-lg text-left shadow-heritage ${
+                  i === photos.length - 1 && photos.length % 2 === 1 ? "sm:col-span-2 sm:max-w-xl sm:mx-auto" : ""
+                }`}
               >
                 <img
                   src={photo.src}
