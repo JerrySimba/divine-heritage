@@ -33,6 +33,7 @@ const photos = [
     src: galleryTop100,
     alt: "Dr. Joan Mwende Kiema Ngunnzi recognised among the Top 100 International Leaders 2026",
     caption: "Top 100 International Leaders 2026",
+    objectPosition: "top",
   },
   {
     src: galleryElimu,
@@ -80,6 +81,7 @@ const Gallery = () => {
                   src={photo.src}
                   alt={photo.alt}
                   className="w-full h-72 lg:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: photo.objectPosition ?? "center" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 font-serif text-lg text-primary-foreground">
