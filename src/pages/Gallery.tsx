@@ -12,6 +12,9 @@ import gallerySession from "@/assets/gallery-session.jpg";
 import galleryCommunity from "@/assets/gallery-community.jpg";
 import galleryTop100 from "@/assets/gallery-top100.jpg";
 import galleryElimu from "@/assets/gallery-elimu.jpg";
+import galleryNoc from "@/assets/gallery-noc.jpg";
+import galleryKessha from "@/assets/gallery-kessha.jpg";
+import galleryBeacon from "@/assets/gallery-beacon.jpg";
 
 const photos = [
   {
@@ -38,6 +41,21 @@ const photos = [
     src: galleryElimu,
     alt: "Dr. Joan Mwende Kiema Ngunnzi speaking at the Elimu Scholarship Programme",
     caption: "Elimu Scholarship Programme",
+  },
+  {
+    src: galleryNoc,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi with colleagues from the National Olympic Committee of Kenya",
+    caption: "National Olympic Committee of Kenya",
+  },
+  {
+    src: galleryKessha,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi at the KCB/KESSHA National Conference of Principals",
+    caption: "KCB/KESSHA National Conference of Principals",
+  },
+  {
+    src: galleryBeacon,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi facilitating a Beacon Teachers Africa session",
+    caption: "Beacon Teachers Africa",
   },
 ];
 
@@ -72,9 +90,7 @@ const Gallery = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.4 }}
                 onClick={() => setActive(photo)}
-                className={`group relative overflow-hidden rounded-lg text-left shadow-heritage ${
-                  i === photos.length - 1 && photos.length % 2 === 1 ? "sm:col-span-2 sm:max-w-xl sm:mx-auto" : ""
-                }`}
+                className="group relative overflow-hidden rounded-lg text-left shadow-heritage"
               >
                 <img
                   src={photo.src}

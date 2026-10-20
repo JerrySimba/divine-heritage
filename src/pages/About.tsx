@@ -3,6 +3,7 @@ import { Award, GraduationCap, Briefcase, Heart, BookOpen, Globe, Shield, Users 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import drJoan from "@/assets/dr-joan.png";
+import directorStrategy from "@/assets/team-director-strategy.jpg";
 import joanSpeaking from "@/assets/joan-speaking.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
@@ -86,6 +87,52 @@ const About = () => {
                 Our approach bridges academic theory with real-world practice, ensuring every programme delivers measurable, lasting impact.
               </p>
             </motion.div>
+          </div>
+
+          <div className="mt-20 pt-16 border-t border-border">
+            <div className="text-center mb-12">
+              <p className="gold-accent mb-3">Leadership</p>
+              <h3 className="text-display text-2xl lg:text-3xl text-foreground">
+                The Team
+              </h3>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-10 max-w-3xl mx-auto">
+              {[
+                {
+                  image: drJoan,
+                  name: "Dr. Joan Mwende Kiema Ngunnzi",
+                  role: "Founder & Chief Executive Officer",
+                  alt: "Dr. Joan Mwende Kiema Ngunnzi, Founder and Chief Executive Officer",
+                },
+                {
+                  image: directorStrategy,
+                  name: "Director, Strategy",
+                  role: "",
+                  alt: "Director, Strategy at Divine Heritage Consultancy",
+                },
+              ].map((member, i) => (
+                <motion.article
+                  key={member.alt}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  className="text-center"
+                >
+                  <div className="overflow-hidden rounded-lg shadow-heritage-lg mb-5 bg-secondary/40">
+                    <img
+                      src={member.image}
+                      alt={member.alt}
+                      className="w-full aspect-[4/5] object-cover object-top"
+                    />
+                  </div>
+                  <h4 className="font-serif text-xl font-semibold text-foreground">{member.name}</h4>
+                  {member.role && (
+                    <p className="text-accent text-sm font-medium tracking-wide mt-1">{member.role}</p>
+                  )}
+                </motion.article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
