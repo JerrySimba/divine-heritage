@@ -51,8 +51,8 @@ const photos = [
   },
   {
     src: galleryNoc,
-    alt: "Dr. Joan Mwende Kiema Ngunnzi with colleagues from the National Olympic Committee of Kenya",
-    caption: "National Olympic Committee of Kenya",
+    alt: "Dr. Joan Mwende Kiema Ngunnzi with Kenya Cycling Federation teammates",
+    caption: "Kenya Cycling Federation Teammates",
   },
   {
     src: galleryKessha,
