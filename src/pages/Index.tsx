@@ -20,12 +20,26 @@ import joanSelfie from "@/assets/joan-selfie.jpg";
 import serv1 from "@/assets/serv1.jpg";
 import institutionalAdvisory from "@/assets/institutional-advisory.jpg";
 import home4 from "@/assets/home4.jpg";
-import upc2 from "@/assets/upc2.jpg";
 import upc3 from "@/assets/upc3.jpg";
 import eventReefCover from "@/assets/event-reef-2.jpg";
 import eventReef1 from "@/assets/event-reef-1.jpg";
 import eventReef3 from "@/assets/event-reef-3.jpg";
 import eventReef4 from "@/assets/event-reef-4.jpg";
+
+const nysPhotoModules = import.meta.glob("../assets/event-nys-*.jpg", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+const nysCoverKey =
+  Object.keys(nysPhotoModules).find((key) => key.includes("event-nys-08")) ?? Object.keys(nysPhotoModules)[0];
+const nysCover = nysPhotoModules[nysCoverKey];
+const nysGallery = [
+  nysCover,
+  ...Object.keys(nysPhotoModules)
+    .sort()
+    .filter((key) => key !== nysCoverKey)
+    .map((key) => nysPhotoModules[key]),
+];
 
 const slides = [
   {
@@ -59,7 +73,13 @@ const events = [
     location: "The Reef Hotel, Mombasa",
     gallery: [eventReefCover, eventReef1, eventReef3, eventReef4],
   },
-  { image: upc2, title: "Coming Soon", desc: "New workshops and professional development programmes are on the way." },
+  {
+    image: nysCover,
+    title: "National Youth Service Training",
+    desc: "Divine Heritage Consultancy delivered professional training to National Youth Service officers, culminating in certification of participants.",
+    location: "National Youth Service",
+    gallery: nysGallery,
+  },
   { image: upc3, title: "Coming Soon", desc: "Stay tuned for our latest conferences, summits, and institutional training events." },
 ];
 

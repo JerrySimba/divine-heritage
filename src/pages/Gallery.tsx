@@ -15,6 +15,13 @@ import galleryElimu from "@/assets/gallery-elimu.jpg";
 import galleryNoc from "@/assets/gallery-noc.jpg";
 import galleryKessha from "@/assets/gallery-kessha.jpg";
 import galleryBeacon from "@/assets/gallery-beacon.jpg";
+import galleryTscReef from "@/assets/gallery-tsc-reef.jpg";
+import galleryTscTeam from "@/assets/gallery-tsc-team.jpg";
+import galleryNysCertificates from "@/assets/gallery-nys-certificates.jpg";
+import galleryNysAward from "@/assets/gallery-nys-award.jpg";
+import galleryNysStage from "@/assets/gallery-nys-stage.jpg";
+import galleryNysSession from "@/assets/gallery-nys-session.jpg";
+import galleryNysGraduates from "@/assets/gallery-nys-graduates.jpg";
 
 const photos = [
   {
@@ -56,6 +63,41 @@ const photos = [
     src: galleryBeacon,
     alt: "Dr. Joan Mwende Kiema Ngunnzi facilitating a Beacon Teachers Africa session",
     caption: "Beacon Teachers Africa",
+  },
+  {
+    src: galleryTscReef,
+    alt: "Teachers Service Commission officers training at The Reef Hotel, Mombasa",
+    caption: "TSC training at The Reef Hotel",
+  },
+  {
+    src: galleryTscTeam,
+    alt: "Teachers Service Commission training team at The Reef Hotel, Mombasa",
+    caption: "TSC officers, Mombasa",
+  },
+  {
+    src: galleryNysCertificates,
+    alt: "National Youth Service officers with certificates after training",
+    caption: "National Youth Service Training",
+  },
+  {
+    src: galleryNysAward,
+    alt: "Certificate presentation at National Youth Service training",
+    caption: "NYS certificate presentation",
+  },
+  {
+    src: galleryNysStage,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi addressing National Youth Service officers on stage",
+    caption: "NYS leadership session",
+  },
+  {
+    src: galleryNysSession,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi facilitating a National Youth Service training session",
+    caption: "NYS classroom training",
+  },
+  {
+    src: galleryNysGraduates,
+    alt: "National Youth Service officers lined up with training certificates",
+    caption: "NYS graduates",
   },
 ];
 
