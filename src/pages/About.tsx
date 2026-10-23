@@ -106,9 +106,9 @@ const About = () => {
                 },
                 {
                   image: directorStrategy,
-                  name: "Director, Strategy",
-                  role: "",
-                  alt: "Director, Strategy at Divine Heritage Consultancy",
+                  name: "H.E. Faith Ndifon",
+                  role: "Director, Strategy",
+                  alt: "H.E. Faith Ndifon, Director, Strategy at Divine Heritage Consultancy",
                 },
               ].map((member, i) => (
                 <motion.article

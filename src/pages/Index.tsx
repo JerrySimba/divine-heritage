@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import divine1 from "@/assets/divine1.jpg";
 import divine2 from "@/assets/serv3.jpg";
 import divine3 from "@/assets/home1.jpg";
@@ -15,9 +20,12 @@ import joanSelfie from "@/assets/joan-selfie.jpg";
 import serv1 from "@/assets/serv1.jpg";
 import institutionalAdvisory from "@/assets/institutional-advisory.jpg";
 import home4 from "@/assets/home4.jpg";
-import upc1 from "@/assets/upc1.jpg";
 import upc2 from "@/assets/upc2.jpg";
 import upc3 from "@/assets/upc3.jpg";
+import eventReefCover from "@/assets/event-reef-2.jpg";
+import eventReef1 from "@/assets/event-reef-1.jpg";
+import eventReef3 from "@/assets/event-reef-3.jpg";
+import eventReef4 from "@/assets/event-reef-4.jpg";
 
 const slides = [
   {
@@ -44,7 +52,13 @@ const serviceHighlights = [
 ];
 
 const events = [
-  { image: upc1, title: "Coming Soon", desc: "Keep checking this page for exciting upcoming events and training opportunities." },
+  {
+    image: eventReefCover,
+    title: "Training Teachers Service Commission Officers",
+    desc: "Divine Heritage Consultancy trained Teachers Service Commission officers at The Reef Hotel, Mombasa.",
+    location: "The Reef Hotel, Mombasa",
+    gallery: [eventReefCover, eventReef1, eventReef3, eventReef4],
+  },
   { image: upc2, title: "Coming Soon", desc: "New workshops and professional development programmes are on the way." },
   { image: upc3, title: "Coming Soon", desc: "Stay tuned for our latest conferences, summits, and institutional training events." },
 ];
@@ -56,8 +70,11 @@ const stats = [
   { value: "12", label: "Specialized Courses" },
 ];
 
+type EventItem = (typeof events)[number];
+
 const Index = () => {
   const [current, setCurrent] = useState(0);
+  const [activeEvent, setActiveEvent] = useState<EventItem | null>(null);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrent((p) => (p + 1) % slides.length), 6000);
@@ -365,28 +382,78 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {events.map((event, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
-                whileHover={{ y: -4 }}
-                className="card-heritage group overflow-hidden"
-              >
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-48 object-cover rounded-md mb-4"
-                />
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{event.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
-              </motion.div>
-            ))}
+            {events.map((event, i) => {
+              const clickable = Boolean(event.gallery?.length);
+              return (
+                <motion.div
+                  key={event.title + i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  whileHover={{ y: -4 }}
+                  onClick={clickable ? () => setActiveEvent(event) : undefined}
+                  onKeyDown={
+                    clickable
+                      ? (e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setActiveEvent(event);
+                          }
+                        }
+                      : undefined
+                  }
+                  role={clickable ? "button" : undefined}
+                  tabIndex={clickable ? 0 : undefined}
+                  className={`card-heritage group overflow-hidden text-left ${clickable ? "cursor-pointer" : ""}`}
+                >
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-48 object-cover rounded-md mb-4"
+                  />
+                  <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{event.title}</h3>
+                  {event.location && (
+                    <p className="text-accent text-xs font-medium tracking-wide mb-2">{event.location}</p>
+                  )}
+                  <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
+                  {clickable && (
+                    <span className="inline-block mt-4 text-sm font-semibold text-heritage-green">
+                      View photos →
+                    </span>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      <Dialog open={!!activeEvent} onOpenChange={(open) => !open && setActiveEvent(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogTitle className="font-serif text-2xl pr-8">
+            {activeEvent?.title}
+          </DialogTitle>
+          {activeEvent && (
+            <div className="space-y-4">
+              {"location" in activeEvent && activeEvent.location && (
+                <p className="text-accent text-sm font-medium">{activeEvent.location}</p>
+              )}
+              <p className="text-muted-foreground text-sm leading-relaxed">{activeEvent.desc}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {activeEvent.gallery?.slice(1).map((src) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={activeEvent.title}
+                    className="w-full h-56 object-cover rounded-md"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
