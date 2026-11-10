@@ -102,14 +102,14 @@ const About = () => {
                 {
                   image: drJoan,
                   name: "Dr. Joan Mwende Kiema Ngunnzi",
-                  role: "Founder & Chief Executive Officer",
-                  alt: "Dr. Joan Mwende Kiema Ngunnzi, Founder and Chief Executive Officer",
+                  role: "Executive Director",
+                  alt: "Dr. Joan Mwende Kiema Ngunnzi, Executive Director",
                 },
                 {
                   image: directorStrategy,
                   name: "H.E. Faith Ndifon",
-                  role: "Director, Strategy",
-                  alt: "H.E. Faith Ndifon, Director, Strategy at Divine Heritage Consultancy",
+                  role: "Strategy Lead",
+                  alt: "H.E. Faith Ndifon, Strategy Lead at Divine Heritage Consultancy",
                 },
                 {
                   image: victoryMusuviwa,
