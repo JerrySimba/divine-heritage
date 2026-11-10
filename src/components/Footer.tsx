@@ -72,7 +72,7 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-2 opacity-70">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>P.O Box 24116-00100, Nairobi<br />Flamingo Towers, 4th Floor<br />Upper Hill – Mara Road<br />(opposite Japanese Embassy)</span>
+                <span>P.O Box 2118-00100, Nairobi<br />Flamingo Towers, 4th Floor<br />Upper Hill – Mara Road<br />(opposite Japanese Embassy)</span>
               </div>
             </div>
           </div>

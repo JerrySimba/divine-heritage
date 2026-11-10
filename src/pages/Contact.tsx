@@ -83,7 +83,7 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-foreground text-sm">Address</p>
                     <p className="text-muted-foreground text-sm">
-                      P.O Box 24116-00100, Nairobi<br />
+                      P.O Box 2118-00100, Nairobi<br />
                       Flamingo Towers, 4th Floor<br />
                       Upper Hill – Mara Road<br />
                       (opposite Japanese Embassy)

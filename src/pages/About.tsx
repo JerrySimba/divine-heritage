@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import drJoan from "@/assets/dr-joan.png";
 import directorStrategy from "@/assets/team-director-strategy.jpg";
+import victoryMusuviwa from "@/assets/team-victory-musuviwa.jpg";
 import joanSpeaking from "@/assets/joan-speaking.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
@@ -96,7 +97,7 @@ const About = () => {
                 The Team
               </h3>
             </div>
-            <div className="grid sm:grid-cols-2 gap-10 max-w-3xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
               {[
                 {
                   image: drJoan,
@@ -109,6 +110,12 @@ const About = () => {
                   name: "H.E. Faith Ndifon",
                   role: "Director, Strategy",
                   alt: "H.E. Faith Ndifon, Director, Strategy at Divine Heritage Consultancy",
+                },
+                {
+                  image: victoryMusuviwa,
+                  name: "Victory Musuviwa",
+                  role: "Public Health Advisor",
+                  alt: "Victory Musuviwa, Public Health Advisor at Divine Heritage Consultancy",
                 },
               ].map((member, i) => (
                 <motion.article

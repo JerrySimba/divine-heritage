@@ -22,6 +22,12 @@ import galleryNysAward from "@/assets/gallery-nys-award.jpg";
 import galleryNysStage from "@/assets/gallery-nys-stage.jpg";
 import galleryNysSession from "@/assets/gallery-nys-session.jpg";
 import galleryNysGraduates from "@/assets/gallery-nys-graduates.jpg";
+import galleryBeaconTeam from "@/assets/gallery-beacon-team.jpg";
+import galleryBeaconColleagues from "@/assets/gallery-beacon-colleagues.jpg";
+import galleryHealthPanel from "@/assets/gallery-health-panel.jpg";
+import galleryKtnNews from "@/assets/gallery-ktn-news.jpg";
+import galleryCogMeeting from "@/assets/gallery-cog-meeting.jpg";
+import gallerySchoolVisit from "@/assets/gallery-school-visit.jpg";
 
 const photos = [
   {
@@ -98,6 +104,36 @@ const photos = [
     src: galleryNysGraduates,
     alt: "National Youth Service officers lined up with training certificates",
     caption: "NYS graduates",
+  },
+  {
+    src: galleryBeaconTeam,
+    alt: "Beacon Teachers Africa team in branded uniforms",
+    caption: "Beacon Teachers Africa team",
+  },
+  {
+    src: galleryBeaconColleagues,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi with Beacon Teachers Africa colleagues",
+    caption: "Beacon Teachers Africa colleagues",
+  },
+  {
+    src: galleryHealthPanel,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi on a health coverage panel",
+    caption: "Health coverage panel",
+  },
+  {
+    src: galleryKtnNews,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi featured on KTN News",
+    caption: "KTN News feature",
+  },
+  {
+    src: galleryCogMeeting,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi speaking at a Council of Governors meeting",
+    caption: "Council of Governors meeting",
+  },
+  {
+    src: gallerySchoolVisit,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi on a school visit",
+    caption: "School engagement",
   },
 ];
 
