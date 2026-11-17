@@ -140,6 +140,7 @@ const photos = [
     src: galleryStakeholderMeeting,
     alt: "Dr. Joan Mwende Kiema Ngunnzi with institutional partners",
     caption: "Stakeholder engagement",
+    fit: "contain" as const,
   },
 ];
 
@@ -179,7 +180,11 @@ const Gallery = () => {
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-72 lg:h-80 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className={
+                    "fit" in photo && photo.fit === "contain"
+                      ? "w-full h-auto object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                      : "w-full h-72 lg:h-80 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  }
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
                 <p className="absolute bottom-4 left-4 right-4 font-serif text-lg text-primary-foreground">
