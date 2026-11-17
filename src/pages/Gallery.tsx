@@ -28,6 +28,7 @@ import galleryHealthPanel from "@/assets/gallery-health-panel.jpg";
 import galleryKtnNews from "@/assets/gallery-ktn-news.jpg";
 import galleryCogMeeting from "@/assets/gallery-cog-meeting.jpg";
 import gallerySchoolVisit from "@/assets/gallery-school-visit.jpg";
+import galleryStakeholderMeeting from "@/assets/gallery-stakeholder-meeting.jpg";
 
 const photos = [
   {
@@ -134,6 +135,11 @@ const photos = [
     src: gallerySchoolVisit,
     alt: "Dr. Joan Mwende Kiema Ngunnzi on a school visit",
     caption: "School engagement",
+  },
+  {
+    src: galleryStakeholderMeeting,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi with institutional partners",
+    caption: "Stakeholder engagement",
   },
 ];
 
