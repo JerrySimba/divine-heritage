@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -9,9 +9,6 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import divine1 from "@/assets/divine1.jpg";
-import divine2 from "@/assets/serv3.jpg";
-import divine3 from "@/assets/home1.jpg";
 import joanGreen from "@/assets/joan-green.jpg";
 import joanGroup from "@/assets/joan-group.jpg";
 import joanWorkshop from "@/assets/joan-workshop.jpg";
@@ -25,35 +22,23 @@ import eventReefCover from "@/assets/event-reef-2.jpg";
 import eventReef1 from "@/assets/event-reef-1.jpg";
 import eventReef3 from "@/assets/event-reef-3.jpg";
 import eventReef4 from "@/assets/event-reef-4.jpg";
+import nysCover from "@/assets/event-nys-08.jpg";
 
-const nysPhotoModules = import.meta.glob("../assets/event-nys-*.jpg", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-const nysCoverKey =
-  Object.keys(nysPhotoModules).find((key) => key.includes("event-nys-08")) ?? Object.keys(nysPhotoModules)[0];
-const nysCover = nysPhotoModules[nysCoverKey];
-const nysGallery = [
-  nysCover,
-  ...Object.keys(nysPhotoModules)
-    .sort()
-    .filter((key) => key !== nysCoverKey)
-    .map((key) => nysPhotoModules[key]),
-];
+const nysGalleryLoaders = import.meta.glob("../assets/event-nys-*.jpg");
 
 const slides = [
   {
-    image: divine1,
+    image: "/hero/slide-1.jpg",
     title: "Strategic Consultancy for Institutional Excellence",
     desc: "We empower organizations through expert training, institutional development, and strategic advisory rooted in legacy.",
   },
   {
-    image: divine2,
+    image: "/hero/slide-2.jpg",
     title: "Building Leaders, Transforming Organizations",
     desc: "Comprehensive professional development programmes designed to build leadership capacity and strengthen HR systems.",
   },
   {
-    image: divine3,
+    image: "/hero/slide-3.jpg",
     title: "Where Passion Forges Progress",
     desc: "Evidence-based interventions that deliver measurable results for government, corporate, and educational institutions across East Africa.",
   },
@@ -78,7 +63,8 @@ const events = [
     title: "National Youth Service Training",
     desc: "Divine Heritage Consultancy delivered professional training to National Youth Service officers, culminating in certification of participants.",
     location: "National Youth Service",
-    gallery: nysGallery,
+    gallery: [nysCover],
+    loadNysGallery: true,
   },
   { image: upc3, title: "Coming Soon", desc: "Stay tuned for our latest conferences, summits, and institutional training events." },
 ];
@@ -101,6 +87,28 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (!activeEvent || !("loadNysGallery" in activeEvent) || !activeEvent.loadNysGallery) return;
+    let cancelled = false;
+    const keys = Object.keys(nysGalleryLoaders).sort();
+    const coverKey = keys.find((key) => key.includes("event-nys-08")) ?? keys[0];
+    Promise.all(
+      [coverKey, ...keys.filter((key) => key !== coverKey)].map((key) =>
+        nysGalleryLoaders[key]().then((mod) => (mod as { default: string }).default),
+      ),
+    ).then((urls) => {
+      if (cancelled) return;
+      setActiveEvent((prev) =>
+        prev && "loadNysGallery" in prev && prev.loadNysGallery
+          ? { ...prev, gallery: urls, loadNysGallery: false }
+          : prev,
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeEvent]);
+
   const prev = () => setCurrent((p) => (p - 1 + slides.length) % slides.length);
   const next = () => setCurrent((p) => (p + 1) % slides.length);
 
@@ -109,23 +117,26 @@ const Index = () => {
       <Navbar />
 
       {/* Hero Slider */}
-      <section className="relative h-[550px] sm:h-[620px] lg:h-[700px] overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="absolute inset-0"
+      <section className="relative h-[550px] sm:h-[620px] lg:h-[700px] overflow-hidden bg-foreground">
+        {slides.map((slide, i) => (
+          <div
+            key={slide.image}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              i === current ? "opacity-100" : "opacity-0"
+            }`}
+            aria-hidden={i !== current}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slides[current].image})` }}
+            <img
+              src={slide.image}
+              alt=""
+              fetchPriority={i === 0 ? "high" : "low"}
+              loading="eager"
+              decoding={i === 0 ? "sync" : "async"}
+              className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ))}
 
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <motion.div
@@ -215,6 +226,8 @@ const Index = () => {
               <img
                 src={joanGreen}
                 alt="Dr. Joan Mwende Kiema Ngunnzi - CEO, Divine Heritage Consultancy"
+                loading="lazy"
+                decoding="async"
                 className="relative rounded-lg w-full object-cover h-80 lg:h-[450px] shadow-heritage-lg"
               />
             </motion.div>
@@ -269,7 +282,7 @@ const Index = () => {
                 whileHover={{ y: -4 }}
                 className="card-heritage group cursor-pointer overflow-hidden"
               >
-                <img src={service.image} alt={service.title} className="w-full h-48 object-cover rounded-md mb-4" />
+                <img src={service.image} alt={service.title} loading="lazy" decoding="async" className="w-full h-48 object-cover rounded-md mb-4" />
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{service.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{service.desc}</p>
               </motion.div>
@@ -307,7 +320,7 @@ const Index = () => {
               viewport={{ once: true }}
               className="relative group overflow-hidden rounded-lg"
             >
-              <img src={joanGroup} alt="Professional training delegates" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img src={joanGroup} alt="Professional training delegates" loading="lazy" decoding="async" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="font-serif text-lg font-semibold text-primary-foreground">Institutional Training</h3>
@@ -322,7 +335,7 @@ const Index = () => {
               transition={{ delay: 0.1 }}
               className="relative group overflow-hidden rounded-lg"
             >
-              <img src={joanWorkshop} alt="Workshop participants in training session" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img src={joanWorkshop} alt="Workshop participants in training session" loading="lazy" decoding="async" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="font-serif text-lg font-semibold text-primary-foreground">Professional Workshops</h3>
@@ -337,7 +350,7 @@ const Index = () => {
               transition={{ delay: 0.2 }}
               className="relative group overflow-hidden rounded-lg"
             >
-              <img src={joanConference} alt="International conference delegates" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img src={joanConference} alt="International conference delegates" loading="lazy" decoding="async" className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <h3 className="font-serif text-lg font-semibold text-primary-foreground">Global Conferences</h3>
@@ -384,6 +397,8 @@ const Index = () => {
               <img
                 src={joanSelfie}
                 alt="Dr. Joan Mwende Kiema Ngunnzi with community leaders and educators"
+                loading="lazy"
+                decoding="async"
                 className="rounded-lg w-full object-cover h-80 lg:h-[420px] shadow-heritage-lg"
               />
             </motion.div>
@@ -403,7 +418,8 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {events.map((event, i) => {
-              const clickable = Boolean(event.gallery?.length);
+              const clickable =
+                Boolean(event.gallery?.length) || Boolean("loadNysGallery" in event && event.loadNysGallery);
               return (
                 <motion.div
                   key={event.title + i}
@@ -430,6 +446,8 @@ const Index = () => {
                   <img
                     src={event.image}
                     alt={event.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-md mb-4"
                   />
                   <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{event.title}</h3>
