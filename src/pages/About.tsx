@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Award, GraduationCap, Briefcase, Heart, BookOpen, Globe, Shield, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import drJoan from "@/assets/dr-joan.png";
+import drJoan from "@/assets/team-joan.jpg";
 import directorStrategy from "@/assets/team-director-strategy.jpg";
 import victoryMusuviwa from "@/assets/team-victory-musuviwa.jpg";
 import ruthUshindi from "@/assets/team-ruth-ushindi.jpg";
@@ -65,6 +65,8 @@ const About = () => {
               <img
                 src={divine2}
                 alt="Divine Heritage Consultancy office"
+                loading="eager"
+                decoding="async"
                 className="rounded-lg w-full object-cover h-80 lg:h-[420px] shadow-heritage-lg"
               />
             </motion.div>
@@ -137,6 +139,9 @@ const About = () => {
                     <img
                       src={member.image}
                       alt={member.alt}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
                       className="w-full aspect-[4/5] object-cover object-top"
                     />
                   </div>
@@ -187,8 +192,8 @@ const About = () => {
             <h2 className="text-display text-3xl lg:text-4xl text-foreground mb-4">Trusted Across East Africa</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <img src={joanGroup} alt="Training delegates" className="rounded-lg w-full h-72 object-cover shadow-heritage" />
-            <img src={joanConference} alt="International conference" className="rounded-lg w-full h-72 object-cover shadow-heritage" />
+            <img src={joanGroup} alt="Training delegates" loading="lazy" decoding="async" className="rounded-lg w-full h-72 object-cover shadow-heritage" />
+            <img src={joanConference} alt="International conference" loading="lazy" decoding="async" className="rounded-lg w-full h-72 object-cover shadow-heritage" />
           </div>
         </div>
       </section>
@@ -219,6 +224,8 @@ const About = () => {
                 <img
                   src={drJoan}
                   alt="Dr. Joan Mwende Kiema Ngunnzi"
+                  loading="lazy"
+                  decoding="async"
                   className="relative rounded-lg w-full max-w-md mx-auto object-cover shadow-heritage-lg"
                 />
               </div>
@@ -292,9 +299,9 @@ const About = () => {
               transition={{ delay: 0.15 }}
               className="grid grid-cols-2 gap-4"
             >
-              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
-              <img src={joanSelfie} alt="Dr. Joan with community members" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
-              <img src={joanGreen} alt="Dr. Joan in a meeting" className="rounded-lg w-full h-64 object-contain shadow-heritage col-span-2 bg-secondary/30" />
+              <img src={joanSpeaking} alt="Dr. Joan speaking at an event" loading="lazy" decoding="async" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanSelfie} alt="Dr. Joan with community members" loading="lazy" decoding="async" className="rounded-lg w-full h-64 object-contain shadow-heritage bg-secondary/30" />
+              <img src={joanGreen} alt="Dr. Joan in a meeting" loading="lazy" decoding="async" className="rounded-lg w-full h-64 object-contain shadow-heritage col-span-2 bg-secondary/30" />
             </motion.div>
           </div>
         </div>
