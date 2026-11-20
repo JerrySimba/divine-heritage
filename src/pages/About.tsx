@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import drJoan from "@/assets/dr-joan.png";
 import directorStrategy from "@/assets/team-director-strategy.jpg";
 import victoryMusuviwa from "@/assets/team-victory-musuviwa.jpg";
+import ruthUshindi from "@/assets/team-ruth-ushindi.jpg";
 import joanSpeaking from "@/assets/joan-speaking.jpg";
 import joanConference from "@/assets/joan-conference.jpg";
 import joanSelfie from "@/assets/joan-selfie.jpg";
@@ -97,7 +98,7 @@ const About = () => {
                 The Team
               </h3>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
               {[
                 {
                   image: drJoan,
@@ -116,6 +117,12 @@ const About = () => {
                   name: "Victory Musuviwa",
                   role: "Public Health Advisor",
                   alt: "Victory Musuviwa, Public Health Advisor at Divine Heritage Consultancy",
+                },
+                {
+                  image: ruthUshindi,
+                  name: "Ruth Ushindi",
+                  role: "Statistician",
+                  alt: "Ruth Ushindi, Statistician at Divine Heritage Consultancy",
                 },
               ].map((member, i) => (
                 <motion.article

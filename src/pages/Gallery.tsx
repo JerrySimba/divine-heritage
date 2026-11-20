@@ -29,6 +29,7 @@ import galleryKtnNews from "@/assets/gallery-ktn-news.jpg";
 import galleryCogMeeting from "@/assets/gallery-cog-meeting.jpg";
 import gallerySchoolVisit from "@/assets/gallery-school-visit.jpg";
 import galleryStakeholderMeeting from "@/assets/gallery-stakeholder-meeting.jpg";
+import galleryPartnership from "@/assets/gallery-partnership.jpg";
 
 const photos = [
   {
@@ -140,6 +141,12 @@ const photos = [
     src: galleryStakeholderMeeting,
     alt: "Dr. Joan Mwende Kiema Ngunnzi with institutional partners",
     caption: "Stakeholder engagement",
+    fit: "contain" as const,
+  },
+  {
+    src: galleryPartnership,
+    alt: "Dr. Joan Mwende Kiema Ngunnzi with a partner",
+    caption: "Partnership engagement",
     fit: "contain" as const,
   },
 ];
